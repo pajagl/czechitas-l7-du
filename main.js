@@ -1,21 +1,42 @@
-<<<<<<< HEAD
 // tady je místo pro náš program
 
+// 1 Výplata
+const salary = (wage, hours, days) => {
+    return Math.round(wage * hours * days)
+}
 
-=======
-// tady je místo pro náš program
+const taxed = (salary, taxPercentage) => {
+    return Math.round(salary * ((100 - taxPercentage)) / 100)
+}
 
-let vstup = document.querySelector(".reseni");
+const wage = 500
+const hours = 6
+const days = 20
+const beforeTaxation = salary(wage, hours, days)
+const afterTaxation = taxed(beforeTaxation, 15)
 
-let jmeno = prompt("Zadejte své celé jméno");
+document.body.innerHTML = `
+<p>Wage: ${wage} Kč </p>
+<p>Hours: ${hours}</p>
+<p>Days: ${days}</p>
+<p>Before taxation: ${beforeTaxation} Kč</p>
+<p>After taxation: ${afterTaxation} Kč</p>
+`
 
-let rok = Number(prompt("Zadejte svůj rok narození"));
-
-vstup.innerHTML += jmeno + " " + (2022 - rok)
-
-let barva = prompt("Napiš oblíbenou barvu anglicky")
-
-vstup.style.color = barva;
-vystup.style.fontStyle = "italic"
-
->>>>>>> b9ecbcddddd872f9e9841d075c1b41e012a1d27e
+// 2 Kalkulačka
+const calculate = (number1, operation, number2) => {
+    if (operation === "+") {
+        return number1 + number2
+    }
+    if (operation === "-") {
+        return number1 - number2 
+    }
+    if (operation === "*") {
+        return number1 * number2
+    }
+    if (operation === "/") {
+            return number1 / number2
+    } else {
+        return false;
+    }
+}
